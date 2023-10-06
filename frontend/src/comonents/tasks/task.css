@@ -1,0 +1,27 @@
+.tasks{
+    padding: 7px 20px;
+    background-color: rgba(116, 111, 111, 0.199);
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border-radius: 7px;
+}
+.taskItems{
+    padding: 10px;
+}
+.editTask{
+    margin: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+.areas{
+    height: auto;
+    padding: 10px
+}
+.updateinput{
+    padding: 6px 20px;
+    width:60%;
+}
+.updateinput:focus{
+    outline: none;
+}

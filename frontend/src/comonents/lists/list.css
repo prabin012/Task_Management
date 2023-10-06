@@ -1,0 +1,34 @@
+.listItems{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.lists{
+    width: 80%;
+    padding: 10px;
+    background-color: rgba(182, 170, 170, 0.35);
+    margin: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
+.taskLisks{
+    color: white;
+    text-decoration: none;
+}
+
+.lists12{
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 25px;
+    align-items: center;
+    display: flex;
+    color: red;
+}
+.l23{
+    display: flex;
+}
