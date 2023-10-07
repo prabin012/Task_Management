@@ -6,16 +6,18 @@ const AppContext = React.createContext();
 const AppProvider = ({children}) => {
 
  const [List, setList] = useState(null);
- const [task, setTAsk] = useState(null);
+ const [task, setTask] = useState(null);
  const [listId, setListID]= useState();
  const [listget, setListget] = useState();
+ const [allList, setAllList] = useState();
 
 
   return <AppContext.Provider value={{
     List, setList,
-    task, setTAsk,
+    task, setTask,
     listId, setListID,
-    listget, setListget
+    listget, setListget,
+    allList, setAllList
     }}>
       {children}
     </AppContext.Provider>

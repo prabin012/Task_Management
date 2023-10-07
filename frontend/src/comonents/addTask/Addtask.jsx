@@ -15,7 +15,7 @@ const Addtask = () => {
           tittle:tittle.current.value
       }
         try {
-            const res = await axios.post(`http://localhost:7550/addTask/list/${listId}`, data)
+            const res = await axios.post(`api/addTask/list/${listId}`, data)
             alert("Task added..")
         } catch (error) {
            console.log(error) 
@@ -26,12 +26,13 @@ const Addtask = () => {
     <div>
       <div className="assTask">
         {atask &&  <form action="" className="fdata" onSubmit={submitHandle}>
-            <input type="text" className="formInput addbtn tskbtn" placeholder='Add Task' ref={tittle}/>
+          {/* <textarea name="" id="" cols="30" rows="10"></textarea> */}
+            <textarea type="text" className="txdt formInput" placeholder='Add Task' ref={tittle} required  cols="80" rows="1"/>
             <button type='submit' className="addbtn btns">Add</button>
             <button onClick={()=>setAtask(false)} className="addbtn">Cancel</button>
            
         </form>}
-        <button  className="addbtn btns" onClick={()=> setAtask(!atask)}>Add Task</button>
+        <button  className="addbtn btns-1" onClick={()=> setAtask(!atask)}>Add Task</button>
         
       </div>
     </div>

@@ -5,8 +5,6 @@ import './register.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { apicall } from '../apiCall';
 
-
-
 const Login = () => {
   const { dispatch} = useContext(AuthContext);
 

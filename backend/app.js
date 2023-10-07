@@ -10,7 +10,7 @@ database();
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(userRote);
+app.use('/api',userRote);
 
 app.listen(7550,()=>{
     console.log("serer is running", 7550)

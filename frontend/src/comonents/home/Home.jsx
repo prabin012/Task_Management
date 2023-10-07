@@ -10,19 +10,24 @@ import AddList from '../addTask/AddList'
 import {AiFillCloseCircle,AiFillDelete,AiOutlineLogout} from "react-icons/ai";
 import { AuthContext } from '../../context/AuthContext'
 import axios from 'axios'
+import { AppContext } from '../../context/AppContext'
 
 const Home = () => {
   const [open , setOpen] = useState(false);
   const {logout, userdata} = useContext(AuthContext)
+  const {allList, setList} = useContext(AppContext);
   const name = userdata.users.name
   const uid = userdata.users._id;
+
+
+  // console.log(listId)
   const logoutHandle =()=>{
     logout();
     window.location.reload();
   }
 const deletJandle =async()=>{
   try {
-    const res = await axios.delete(`http://localhost:7550/userdelet/${uid}`)
+    const res = await axios.delete(`api/userdelet/${uid}`)
     setOpen(res.data);
    setTimeout(() => {
     setOpen(false)
@@ -32,8 +37,12 @@ const deletJandle =async()=>{
     console.log(error)
   }
   window.location.reload();
- 
+  if(!allList) return null;
 }
+
+// const lId = allList._id
+// console.log(lId)
+// if(!allList) return <>Loding</>;
   return (
     <div>
         {<h1>{open}</h1>}
@@ -42,7 +51,7 @@ const deletJandle =async()=>{
       <div className="homeContainer">
       <div className="homeItem">
         <span className="listTittle">Task Lists</span>
-        <span className="tasktittle">Tasks</span>
+        <span className="tasktittle">Tasks <span className='tt'>{allList? allList.tittle:null}</span></span>
         <div className="divUSer">
         <span className="setting1 sname">{name}</span>
         {/* <span className="setting1"><AiFillCloseCircle/></span> */}
@@ -64,7 +73,7 @@ const deletJandle =async()=>{
       <div className="bodyBottom">
         <div className="createList">
           <AddList/>
-          <Addtask/>
+          {allList?<Addtask/>:""}
         </div>
       </div>
       </div>

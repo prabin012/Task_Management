@@ -8,6 +8,8 @@
 }
 .taskItems{
     padding: 10px;
+    position: relative;
+    height: auto;
 }
 .editTask{
     margin: 5px;
@@ -20,8 +22,21 @@
 }
 .updateinput{
     padding: 6px 20px;
-    width:60%;
+    width:100%;
+    height: auto;
 }
 .updateinput:focus{
     outline: none;
+}
+.notificationbord{
+    position: absolute; 
+    left: 20%;
+    margin-top: 120px;
+    font-size: 100px;
+    transform: rotate(-40deg);
+    color: rgba(255, 255, 255, 0.402);
+}
+.checkStyle{
+    opacity: .5;
+    text-decoration: line-through;
 }

@@ -98,3 +98,26 @@
     padding: 6px 10px;
     cursor: pointer;
 }
+.tt{
+    color: rgb(2, 99, 255);
+    font-weight: 600;
+}
+@media (max-width:850px) {
+
+.homeItem{
+    width: 90%;
+}
+.homeContainer{
+    width: 100%;
+}
+.homeSidebar{
+    width: 100%;
+    font-size: 13px;
+   
+}
+.bodyBottom{
+    width: 100%;
+
+}
+
+}

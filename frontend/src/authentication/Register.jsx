@@ -4,7 +4,6 @@ import {Link, useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 import './register.css'
 import axios from 'axios'
-const URL = "http://localhost:7550"
 
 const Register = () => {
   const [alerts, setAlerts] = useState(null);
@@ -24,7 +23,7 @@ const Register = () => {
     const ClickHandle =async(e)=>{
       e.preventDefault();
       try {
-        const res = await axios.post(`${URL}/createUser`,data)
+        const res = await axios.post(`api/createUser`,data)
         console.log("Data posted",res.data)
         if(res.data.success===true){
           setMsg("User created successfylly..")

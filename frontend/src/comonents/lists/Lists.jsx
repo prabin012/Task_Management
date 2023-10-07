@@ -7,13 +7,14 @@ import {AiFillCloseCircle} from "react-icons/ai";
 
 const Lists = () => {
 
-  const {List, setList,task, setTAsk,listId, setListID,listget, setListget} = useContext(AppContext);
+  const {List, setList,task, setTask,listId, setListID,listget,allList, setListget,setAllList} = useContext(AppContext);
 
+  console.log(allList)
 
   const showtask =async(id)=>{
     try {
-      const res = await axios.get(`http://localhost:7550/gettasks/${id}`)
-      setTAsk(res.data)
+      const res = await axios.get(`api/gettasks/${id}`)
+      setTask(res.data)
     } catch (error) {
       console.log(error)
     }
@@ -24,9 +25,10 @@ const Lists = () => {
 
   const deletItemHAndle =async(id)=>{
     try {
-      console.log(id)
-      const res = await axios.delete(`http://localhost:7550/deletelist/${id}`)
+      // console.log(id)
+      const res = await axios.delete(`api/deletelist/${id}`)
       alert("list deleted")
+      // showtask();
     } catch (error) {
       console.log(error)
     }
@@ -44,6 +46,7 @@ const Lists = () => {
             <div className="keyList lists" key={list.id} onClick={()=>{
               showtask(list._id)
               setListID(list._id)
+              setAllList(list)
               }}>
               <span className="lists1"> {list.tittle} </span>
               

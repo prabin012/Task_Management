@@ -9,7 +9,9 @@ const Tasks = () => {
   const tittle = useRef();
   const { task, setTAsk } = useContext(AppContext);
   const [taskId, setTaskid] = useState(null);
+  const [tdone, setTdone] = useState();
   const [update, setUpdate] = useState(false)
+  const [check, setCheck] =useState(false)
   const [data, setData] = useState({
     tittle: ""
   });
@@ -18,7 +20,7 @@ const Tasks = () => {
   const delethandle = async (id) => {
     console.log(id)
     try {
-      const res = await axios.delete(`http://localhost:7550/delettask/list/${id}`)
+      const res = await axios.delete(`api/delettask/list/${id}`)
       alert("deleted successfully...")
     } catch (error) {
       console.log(error)
@@ -31,7 +33,7 @@ const Tasks = () => {
       tittle:tittle.current.value
     }
     try {
-      const res = await axios.post(`http://localhost:7550/updatetask/list/${taskId}`,datatittle)
+      const res = await axios.post(`api/updatetask/list/${taskId}`,datatittle)
       alert("updated successfully...")
       setTimeout(()=>{
         setUpdate(false)
@@ -43,24 +45,32 @@ const Tasks = () => {
   const changeHandle = (e) => {
     setData(e.target.value)
   }
+  const checked =(id)=>{
+    setTdone(id)
+    setCheck(!check)
+    
+  }
+  console.log(tdone)
   return (
 
 
     <div>
       <div className="taskItems">
         {update && <form className='areas' onSubmit={editHandle}>
-          <input type="text" className="updateinput" value={data} onChange={changeHandle} ref={tittle}/>
+          <textarea type="text" className="updateinput txdt formInput" value={data} onChange={changeHandle} ref={tittle}  rows="5"/>
+       
           <button className="editTask" type='submit'>edit task</button>
           <button className="editTask" onClick={()=>setUpdate(false)}>Cancel</button>
         </form>
         }
-        {
+        { tasks.length>0?(
           tasks.map((tasks) => {
             return (
               <div className="tasks" >
-                <span className="tastDescription">{tasks.tittle}</span>
+                <label className={'tastDescription'}>{tasks.tittle}</label>
 
                 <div className="taskbtn">
+                <input type="checkbox" className="editTask" onChange={()=>checked(tasks._id)}></input>
                   <span className="editTask" onClick={() => {
                     setUpdate(!update);
                     setData(tasks.tittle);
@@ -72,6 +82,7 @@ const Tasks = () => {
               </div>
             )
           })
+        ):(<h1 className='notificationbord'>No Task !</h1>)
         }
 
       </div>
