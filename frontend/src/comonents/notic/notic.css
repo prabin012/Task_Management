@@ -1,0 +1,14 @@
+.notic{
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.niticmeassage{
+    color: rgb(12, 37, 227);
+    font-size: 17px
+}

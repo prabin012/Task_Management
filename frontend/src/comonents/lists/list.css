@@ -5,14 +5,19 @@
 
 }
 .lists{
-    width: 80%;
-    padding: 10px;
+    width: 100%;
     background-color: rgba(182, 170, 170, 0.35);
     margin: 10px;
     border-radius: 6px;
     cursor: pointer;
-    text-align: center;
     position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lists1{
+    padding: 5px;
 }
 .taskLisks{
     color: white;
